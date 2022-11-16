@@ -3,6 +3,7 @@
 
 #include "StyleBrowserModel.h"
 
+#include "EditorStyleSet.h"
 #include "HazardToolsUtils.h"
 #include "StyleBrowserStyleSetProxy.h"
 #include "StyleBrowserItem.h"
@@ -200,10 +201,11 @@ FString FStyleBrowserModel::GetStyleSetCodeSnippedPart(const FStyleBrowserItemRe
 		return FString::Printf(TEXT("%sFAppStyle%s::Get()."), *Prefix_Type, *Suffix_Type);
 	}
 
-	if (ItemStyleSetName == FEditorStyle::Get().GetStyleSetName())
+	// Deprecated in UE 5.1
+	/* if (ItemStyleSetName == FEditorStyle::Get().GetStyleSetName())
 	{
 		return FString::Printf(TEXT("%sFEditorStyle%s::Get()."), *Prefix_Type, *Suffix_Type);
-	}
+	}*/
 
 	if (FCoreStyle::IsInitialized() && ItemStyleSetName == FCoreStyle::GetCoreStyle().GetStyleSetName())
 	{

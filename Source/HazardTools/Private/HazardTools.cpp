@@ -5,7 +5,6 @@
 #include "LevelEditor.h"
 #include "SObjectOutliner.h"
 #include "SStyleBrowser.h"
-#include "ToolMenus.h"
 #include "PackageFlags/HazardToolsPackageFlags.h"
 
 

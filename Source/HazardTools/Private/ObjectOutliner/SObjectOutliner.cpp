@@ -78,7 +78,7 @@ void SObjectOutliner::Construct(const FArguments& InArgs)
 	                    .FillHeight(1.0f)
 	[
 		SNew(SBorder)
-			.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+			.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 			.Padding(FMargin(0.0f, 4.0f))
 		[
 			MakeTreeView()
@@ -111,7 +111,7 @@ void SObjectOutliner::Construct(const FArguments& InArgs)
 		[
 			SNew(SBorder)
 			.Padding(FMargin(3))
-			.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+			.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 			[
 				LeftPanelVerticalBox
 			]
@@ -122,7 +122,7 @@ void SObjectOutliner::Construct(const FArguments& InArgs)
 		[
 			SNew(SBorder)
 			.Padding(FMargin(3))
-			.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+			.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 			[
 				MakePropertyEditor()
 			]

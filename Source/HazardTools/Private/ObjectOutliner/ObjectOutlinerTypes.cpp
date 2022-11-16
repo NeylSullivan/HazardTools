@@ -1,6 +1,8 @@
 ﻿// Copyright Neyl Sullivan 2022
 
 #include "ObjectOutlinerTypes.h"
+
+#include "EditorStyleSet.h"
 #include "SourceCodeNavigation.h"
 #include "ToolMenu.h"
 #include "HazardTools.h"
@@ -23,7 +25,7 @@ void FObjectOutlinerItemActions::GenerateContextMenu(UToolMenu* Menu, const FObj
 	Section.AddMenuEntry("OpenSourceFile",
 		INVTEXT("Open Source File"),
 		FText::GetEmpty(),
-		FSlateIcon(FEditorStyle::GetStyleSetName(), "SystemWideCommands.FindInContentBrowser"),
+		FSlateIcon(FAppStyle::GetAppStyleSetName(), "SystemWideCommands.FindInContentBrowser"),
 		FUIAction(
 			FExecuteAction::CreateStatic(&FObjectOutlinerItemActions::OpenHeaderFile, Object),
 			FCanExecuteAction::CreateStatic(&FObjectOutlinerItemActions::CanOpenHeaderFile, Object)
@@ -33,7 +35,7 @@ void FObjectOutlinerItemActions::GenerateContextMenu(UToolMenu* Menu, const FObj
 	Section.AddMenuEntry("CopyObjectPath",
 		INVTEXT("Copy Object Path"),
 		FText::GetEmpty(),
-		FSlateIcon(FEditorStyle::GetStyleSetName(), "SystemWideCommands.FindInContentBrowser"),
+		FSlateIcon(FAppStyle::GetAppStyleSetName(), "SystemWideCommands.FindInContentBrowser"),
 		FUIAction(
 			FExecuteAction::CreateStatic(&FObjectOutlinerItemActions::CopyObjectPath, Object)
 			)

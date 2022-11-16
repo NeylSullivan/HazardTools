@@ -178,7 +178,9 @@ void UStructToText_Internal(const UStruct* StructDefinition, const void* Struct,
 		else
 		{
 			FString ValueString;
-			Property->ExportTextItem(ValueString, Value, nullptr, nullptr, 0);
+			// Property->ExportTextItem(ValueString, Value, nullptr, nullptr, 0);
+			// UE 5.1 update
+			Property->ExportTextItem_Direct(ValueString, Value, nullptr, nullptr, 0);
 
 			if (WrapPathWithHyperlinkIfPossible(ValueString))
 			{

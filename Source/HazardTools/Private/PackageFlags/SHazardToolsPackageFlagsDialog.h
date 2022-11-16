@@ -191,7 +191,7 @@ public:
 		this->ChildSlot
 		[
 			SNew(SBorder)
-			.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+			.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 			[
 				SNew(SVerticalBox)
 
@@ -202,7 +202,7 @@ public:
 				  .HAlign(HAlign_Center)
 				[
 					SNew(STextBlock)
-					.TextStyle(FEditorStyle::Get(), "NewClassDialog.PageTitle")
+					.TextStyle(FAppStyle::Get(), "NewClassDialog.PageTitle")
 					.Text(FText::FromString(FString::Printf(TEXT("%i Assets Selected"), TotalSelectedItemsNum)))
 					.ToolTipText(SelectedItemsInfo)
 				]

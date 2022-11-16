@@ -72,7 +72,7 @@ void SStyleBrowser::Construct(const FArguments& InArgs)
 		.FillHeight(1.0f)
 		[
 			SNew(SBorder)
-			.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+			.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 			.Padding(FMargin(0.0f, 4.0f))
 			[
 				MakeListView()
@@ -116,7 +116,7 @@ void SStyleBrowser::Construct(const FArguments& InArgs)
 			[
 				SNew(SBorder)
 				.Padding(FMargin(3))
-				.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+				.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 				[
 					LeftPanelVerticalBox
 				]
@@ -352,7 +352,7 @@ TSharedRef<SWidget> SStyleBrowser::MakePreviewArea()
 			[
 				SNew(SBorder)
 				.Padding(FMargin(4.f))
-				.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+				.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 				[
 					SNew(SVerticalBox)
 
@@ -401,7 +401,7 @@ TSharedRef<SWidget> SStyleBrowser::MakePreviewArea()
 					[
 						SNew(SBorder)
 						.Padding(0.f)
-						.BorderImage(FEditorStyle::GetBrush("Checkerboard"))
+						.BorderImage(FAppStyle::Get().GetBrush("Checkerboard"))
 						.BorderBackgroundColor(FLinearColor(1.f, 1.f, 1.f, 0.05f))
 						.Clipping(EWidgetClipping::ClipToBounds)
 						[
@@ -416,7 +416,7 @@ TSharedRef<SWidget> SStyleBrowser::MakePreviewArea()
 			[
 				SNew(SBorder)
 				.Padding(FMargin(4.f))
-				.BorderImage(FEditorStyle::GetBrush("ToolPanel.GroupBorder"))
+				.BorderImage(FAppStyle::Get().GetBrush("ToolPanel.GroupBorder"))
 				[
 					SNew(SScrollBox)
 					+ SScrollBox::Slot()
