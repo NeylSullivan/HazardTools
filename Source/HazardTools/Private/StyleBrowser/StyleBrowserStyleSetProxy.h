@@ -17,7 +17,7 @@ public:
 
 	static const TMap<FName, TSharedRef<FSlateWidgetStyle>>& GetWidgetStyleValues(const ISlateStyle& StyleSet);
 	static const TMap<FName, float>& GetFloatValues(const ISlateStyle& StyleSet);
-	static const TMap<FName, FVector2d>& GetVector2DValues(const ISlateStyle& StyleSet);
+	static const TMap<FName, FVector2f>& GetVector2DValues(const ISlateStyle& StyleSet);
 	static const TMap<FName, FLinearColor>& GetColorValues(const ISlateStyle& StyleSet);
 	static const TMap<FName, FSlateColor>& GetSlateColorValues(const ISlateStyle& StyleSet);
 	static const TMap<FName, FMargin>& GetMarginValues(const ISlateStyle& StyleSet);

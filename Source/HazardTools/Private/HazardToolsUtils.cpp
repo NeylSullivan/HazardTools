@@ -71,7 +71,7 @@ bool IsPropertyBuiltinStruct(const FStructProperty* StructProperty)
 	return StructProperty != nullptr ? BuiltinStructNames.Contains(StructProperty->Struct->GetFName()) : false;
 }
 
-UE_NODISCARD bool WrapPathWithHyperlinkIfPossible(FString& InOutString)
+[[nodiscard]] bool WrapPathWithHyperlinkIfPossible(FString& InOutString)
 {
 	if (FPaths::FileExists(InOutString))
 	{

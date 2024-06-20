@@ -27,7 +27,7 @@ const FName FStyleBrowserItem_Sound::TypeName("Sound");
 
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 
-UE_NODISCARD TSharedRef<SWidget> MakeColorPreviewAreaWidget(const TSharedPtr<FSlateRoundedBoxBrush> RoundedBoxBrush, const FLinearColor LinearColor)
+[[nodiscard]] TSharedRef<SWidget> MakeColorPreviewAreaWidget(const TSharedPtr<FSlateRoundedBoxBrush> RoundedBoxBrush, const FLinearColor LinearColor)
 {
 	const FSlateColor FontColor = FAppStyle::Get().GetSlateColor(LinearColor.GetLuminance() > 0.5f ? "Colors.Background" : "Colors.White");
 
@@ -66,7 +66,7 @@ UE_NODISCARD TSharedRef<SWidget> MakeColorPreviewAreaWidget(const TSharedPtr<FSl
 		];
 }
 
-UE_NODISCARD FString MakeNiceFloatString(const double InFloat)
+[[nodiscard]] FString MakeNiceFloatString(const double InFloat)
 {
 	const FString String = FString::SanitizeFloat(InFloat, 0);
 	if (String == TEXT("0"))
@@ -243,7 +243,7 @@ FString FStyleBrowserItem_SlateColor::GetCodeSnippet()
 
 #pragma region FStyleBrowserItem_Margin
 
-UE_NODISCARD FString MakeMarginString(const FMargin& Margin)
+[[nodiscard]] FString MakeMarginString(const FMargin& Margin)
 {
 	const FString Left = MakeNiceFloatString(Margin.Left);
 	const FString Top = MakeNiceFloatString(Margin.Top);

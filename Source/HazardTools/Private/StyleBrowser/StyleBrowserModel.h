@@ -41,7 +41,7 @@ public:
 	FString GetStyleSetsHierarchy() const;
 	bool HasParentStyleSet() const;
 
-	UE_NODISCARD FName GetStyleTypeNameToDisplay() const { return StyleTypeNameToDisplay; }
+	[[nodiscard]] FName GetStyleTypeNameToDisplay() const { return StyleTypeNameToDisplay; }
 	void SetStyleTypeNameToDisplay(const FName InStyleTypeNameToDisplay);
 
 private:

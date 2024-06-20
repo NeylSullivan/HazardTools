@@ -605,6 +605,8 @@ TSharedRef<::IDetailsView> SObjectOutliner::MakePropertyEditor()
 		DetailsViewArgs.bHideSelectionTip = true;
 		DetailsViewArgs.DefaultsOnlyVisibility = EEditDefaultsOnlyNodeVisibility::Automatic;
 		DetailsViewArgs.bAllowFavoriteSystem = false;
+		DetailsViewArgs.bShowPropertyMatrixButton = false;
+		DetailsViewArgs.bForceHiddenPropertyVisibility = true; // IMPORTANT to display UPROPERTY() only properties
 	}
 	PropertyEditor = EditModule.CreateDetailView(DetailsViewArgs);
 	return PropertyEditor.ToSharedRef();

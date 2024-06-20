@@ -3,7 +3,7 @@
 #include "HazardToolsPackageFlags.h"
 #include "HazardToolsPackageFlagsTypes.h"
 #include "SHazardToolsPackageFlagsDialog.h"
-#include "MainFrame/Public/Interfaces/IMainFrameModule.h"
+#include "Interfaces/IMainFrameModule.h"
 
 TArray<UPackage*> GetSelectedPackages()
 {

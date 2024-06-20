@@ -139,7 +139,7 @@ void FStyleBrowserModel::UpdateContent()
 		check(CurrentStyleSet)
 
 		Fill<FStyleBrowserItem_Float, float>(FStyleBrowserStyleSetProxy::GetFloatValues);
-		Fill<FStyleBrowserItem_Vector2D, FVector2d>(FStyleBrowserStyleSetProxy::GetVector2DValues);
+		Fill<FStyleBrowserItem_Vector2D, FVector2f>(FStyleBrowserStyleSetProxy::GetVector2DValues);
 		Fill<FStyleBrowserItem_Margin, FMargin>(FStyleBrowserStyleSetProxy::GetMarginValues);
 		Fill<FStyleBrowserItem_Color, FLinearColor>(FStyleBrowserStyleSetProxy::GetColorValues);
 		Fill<FStyleBrowserItem_SlateColor, FSlateColor>(FStyleBrowserStyleSetProxy::GetSlateColorValues);

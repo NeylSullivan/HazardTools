@@ -4,11 +4,9 @@ using UnrealBuildTool;
 
 public class HazardTools : ModuleRules
 {
-	public HazardTools(ReadOnlyTargetRules target) : base(target)
+	public HazardTools(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-
-		PublicIncludePaths.AddRange(new string[] { });
 
 		PrivateIncludePaths.AddRange(
 			new[]
@@ -20,7 +18,7 @@ public class HazardTools : ModuleRules
 			}
 		);
 
-		PublicDependencyModuleNames.AddRange(
+		PrivateDependencyModuleNames.AddRange(
 			new[]
 			{
 				"Core",

@@ -56,10 +56,10 @@ struct FStyleBrowserItem_Float : FStyleBrowserItem
 
 struct FStyleBrowserItem_Vector2D : FStyleBrowserItem
 {
-	const FVector2d Vector2dValue;
+	const FVector2f Vector2dValue;
 	static const FName TypeName;
 
-	FStyleBrowserItem_Vector2D(const FName& Name, const FName& StyleSetName, const FVector2d Vector2dValue)
+	FStyleBrowserItem_Vector2D(const FName& Name, const FName& StyleSetName, const FVector2f Vector2dValue)
 		: FStyleBrowserItem(Name, StyleSetName)
 		, Vector2dValue(Vector2dValue)
 	{

@@ -15,7 +15,7 @@ const TMap<FName, float>& FStyleBrowserStyleSetProxy::GetFloatValues(const ISlat
 	return reinterpret_cast<const FStyleBrowserStyleSetProxy&>(StyleSet).FloatValues; // Ugly hack
 }
 
-const TMap<FName, FVector2d>& FStyleBrowserStyleSetProxy::GetVector2DValues(const ISlateStyle& StyleSet)
+const TMap<FName, FVector2f>& FStyleBrowserStyleSetProxy::GetVector2DValues(const ISlateStyle& StyleSet)
 {
 	// ReSharper disable once CppRedundantCastExpression
 	return reinterpret_cast<const FStyleBrowserStyleSetProxy&>(StyleSet).Vector2DValues; // Ugly hack
