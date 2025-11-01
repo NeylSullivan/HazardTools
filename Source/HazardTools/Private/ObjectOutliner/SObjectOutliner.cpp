@@ -528,7 +528,8 @@ TSharedRef<SWidget> SObjectOutliner::MakeTreeView()
 		  .HAlignHeader(HAlign_Right);
 
 	SAssignNew(TreeView, STreeView<FObjectOutlinerItemPtr>)
-	.ItemHeight(24.0f)
+	// UE_5.5 - deprecated slate attribute
+	//.ItemHeight(24.0f)
 	.TreeItemsSource(&Model->GetRootContent())
 	.SelectionMode(ESelectionMode::Single)
 	.OnGenerateRow(this, &SObjectOutliner::HandleListGenerateRow)

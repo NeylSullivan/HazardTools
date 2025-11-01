@@ -189,7 +189,9 @@ void UStructToText_Internal(const UStruct* StructDefinition, const void* Struct,
 			}
 			else
 			{
-				Builder.AppendLineFormat(INVTEXT("{0} <Log.Command>{1}</>"), FText::FromString(PrefixString), FText::FromString(ValueString));
+				//Builder.AppendLineFormat(INVTEXT("{0} <Log.Command>{1}</>"), FText::FromString(PrefixString), FText::FromString(ValueString));
+				// UE 5.5 update. <Log.Command> (green text) not exist anymore
+				Builder.AppendLineFormat(INVTEXT("{0} <SyntaxHighlight.SourceCode.Number>{1}</>"), FText::FromString(PrefixString), FText::FromString(ValueString));
 			}
 		}
 	}

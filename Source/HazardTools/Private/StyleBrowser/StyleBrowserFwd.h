@@ -6,13 +6,13 @@
 
 namespace HazardTools
 {
-class FStyleBrowserModel;
-//enum class EDisplayMode : uint8;
+	class FStyleBrowserModel;
+	//enum class EDisplayMode : uint8;
 
-//struct FObjectOutlinerFilter;
-struct FStyleBrowserItem;
-class IDetailsView;
+	//struct FObjectOutlinerFilter;
+	struct FStyleBrowserItem;
+	class IDetailsView;
 
-typedef TSharedPtr<FStyleBrowserItem> FStyleBrowserItemPtr;
-typedef TSharedRef<FStyleBrowserItem> FStyleBrowserItemRef;
+	typedef TSharedPtr<FStyleBrowserItem> FStyleBrowserItemPtr;
+	typedef TSharedRef<FStyleBrowserItem> FStyleBrowserItemRef;
 }

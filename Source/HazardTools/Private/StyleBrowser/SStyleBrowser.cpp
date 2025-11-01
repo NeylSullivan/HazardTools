@@ -327,7 +327,8 @@ TSharedRef<SWidget> SStyleBrowser::MakeListView()
 		  .ShouldGenerateWidget(true);
 
 	SAssignNew(ListView, SListView<FStyleBrowserItemPtr>)
-	.ItemHeight(24.0f)
+	// UE_5.5 - deprecated slate attribute
+	//.ItemHeight(24.0f)
 	.ListItemsSource(&Model->GetFilteredContent())
 	.SelectionMode(ESelectionMode::Single)
 	.OnGenerateRow(this, &ThisClass::HandleListGenerateRow)

@@ -164,7 +164,8 @@ public:
 		bUserClickedOkay = false;
 
 		ListView = SNew(SListView< TSharedPtr<FHazardToolsPackageFlagsDescription> >)
-		.ItemHeight(24)
+		// UE_5.5 - deprecated slate attribute
+		//.ItemHeight(24)
 		.SelectionMode(ESelectionMode::None)
 		.ListItemsSource(&FlagsDescriptions)
 		.OnGenerateRow(this, &SHazardToolsPackagesFlagsDialog::OnGenerateRowForList)
