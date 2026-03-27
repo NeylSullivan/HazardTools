@@ -135,7 +135,7 @@ void GenerateDropDownFilters(TArray<TSharedPtr<FObjectOutlinerFilter>>& OutFilte
 	OutFilters.Add(FObjectOutlinerFilter::MakeForClasses("Filter_Meta",
 		INVTEXT("Meta"),
 		{
-			UMetaData::StaticClass(),
+			/*UMetaData::StaticClass(),*/ // UDEPRECATED_MetaData
 			UAssetImportData::StaticClass(),
 			UMeshDescriptionBaseBulkData::StaticClass(),
 			UThumbnailInfo::StaticClass(),
