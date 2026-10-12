@@ -4,9 +4,12 @@
 #include "HazardToolsUtils.h"
 #include "LevelEditor.h"
 #include "SObjectOutliner.h"
+#include "PrimaryAssetTypes/SPrimaryAssetTypesManager.h"
 #include "SStyleBrowser.h"
 #include "PackageFlags/HazardToolsPackageFlags.h"
 #include "RecentAssetsButton/RecentAssetsButton.h"
+#include "ConfigReferenceValidator/SHazardConfigReferenceValidatorWindow.h"
+#include "UMGToSlate/SHazardUMGToSlate.h"
 
 
 DEFINE_LOG_CATEGORY(LogHazardTools);
@@ -15,6 +18,7 @@ class FHazardToolsModule : public IModuleInterface
 {
 	TSharedPtr<FUICommandList> PluginCommands;
 	TMap<FName, TSharedPtr<FTabSpawnerEntry>> RegisteredTabs;
+	FDelegateHandle SlateExportMenuCallback;
 
 public:
 	virtual void StartupModule() override
@@ -23,6 +27,13 @@ public:
 
 		if (!IsRunningCommandlet())
 		{
+			RegisterNomadTabSpawner(HazardTools::SHazardUMGToSlate::TabName, INVTEXT("UMG to Slate"), FOnSpawnTab::CreateLambda([](const FSpawnTabArgs&) {
+				return SNew(SDockTab).TabRole(NomadTab)
+					[
+						SNew(HazardTools::SHazardUMGToSlate)
+					];
+			}));
+
 			RegisterNomadTabSpawner("HazardToolsObjectOutlinerTab", INVTEXT("Object Outliner"), FOnSpawnTab::CreateLambda([](const FSpawnTabArgs&) {
 				return SNew(SDockTab)
 					.TabRole(NomadTab)
@@ -39,16 +50,35 @@ public:
 					];
 			}));
 
+			RegisterNomadTabSpawner("HazardToolsPrimaryAssetTypesTab", INVTEXT("Primary Asset Types"), FOnSpawnTab::CreateLambda([](const FSpawnTabArgs&) {
+				return SNew(SDockTab)
+					.TabRole(NomadTab)
+					[
+						SNew(HazardTools::SPrimaryAssetTypesManager)
+					];
+			}));
+
+			RegisterNomadTabSpawner("HazardToolsConfigReferenceValidatorTab", INVTEXT("Config Reference Validator"), FOnSpawnTab::CreateLambda([](const FSpawnTabArgs&) {
+				return SNew(SDockTab)
+					.TabRole(NomadTab)
+					[
+						SNew(HazardTools::SHazardConfigReferenceValidatorWindow)
+					];
+			}));
+
 			if (FSlateApplication::IsInitialized())
 			{
 				UToolMenus::RegisterStartupCallback(FSimpleMulticastDelegate::FDelegate::CreateRaw(this, &FHazardToolsModule::ExtendMenu));
 				UToolMenus::RegisterStartupCallback(FSimpleMulticastDelegate::FDelegate::CreateStatic(&FRecentAssetsButton::Register));
+				SlateExportMenuCallback = UToolMenus::RegisterStartupCallback(FSimpleMulticastDelegate::FDelegate::CreateStatic(&HazardTools::SHazardUMGToSlate::RegisterMenus));
 			}
 		}
 	}
 
 	virtual void ShutdownModule() override
 	{
+		UToolMenus::UnRegisterStartupCallback(SlateExportMenuCallback);
+		UToolMenus::UnregisterOwner(HazardTools::SHazardUMGToSlate::TabName);
 		for (const auto& NomadTabSpawnerName : RegisteredTabs)
 		{
 			FGlobalTabmanager::Get()->UnregisterNomadTabSpawner(NomadTabSpawnerName.Key);

@@ -40,13 +40,19 @@ public class HazardTools : ModuleRules
 				"Slate",
 				"SlateCore",
 				"EditorWidgets",
+				"UMG",
+				"UMGEditor",
+				"Kismet",
 				"PropertyEditor",
 				"ContentBrowser",
 				"DeveloperSettings",
 				"AssetTools",
+				"AssetRegistry",
+				"ClassViewer",
 				"ToolMenus",
 				"ApplicationCore",
-				"MeshDescription"
+				"MeshDescription",
+				"Settings"
 			}
 		);
 		DynamicallyLoadedModuleNames.AddRange(new string[] { });

@@ -1,8 +1,7 @@
 .vs
 *.sln
 Binaries/
-Build/
+Build/**/FileOpenOrder/
 DerivedDataCache/
 Intermediate/
-Resources/
 Saved/
