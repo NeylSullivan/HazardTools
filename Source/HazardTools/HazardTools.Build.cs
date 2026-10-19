@@ -8,6 +8,11 @@ public class HazardTools : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
+		if (Target.bCompileFreeType)
+		{
+			AddEngineThirdPartyPrivateStaticDependencies(Target, "FreeType2", "UElibPNG", "zlib");
+		}
+
 		PrivateIncludePaths.AddRange(
 			new[]
 			{

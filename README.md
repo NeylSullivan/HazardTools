@@ -75,9 +75,21 @@ A combo button in the editor toolbar with three lists:
 
 The button is hidden during PIE (Play In Editor).
 
+## Font Glyph Browser
+
+Open **Hazard Tools > Font Glyph Browser** to inspect a runtime **Font** or **Font Face** asset. For a composite Font, select a face from the default, sub-font, or fallback typefaces. The browser displays the selected face's Unicode character map independently of composite ranges and system fallback fonts. Offline bitmap fonts are not supported.
+
+- Browse a virtualized glyph grid and resize the selected glyph's preview.
+- Search by partial name, alias, hexadecimal code (`E5C4`, `U+E5C4`, `0xE5C4`, `\uE5C4`), decimal code, or the glyph itself. Searches ignore case; spaces combine terms with AND. OR, NOT, and quoted phrases are also supported.
+- Double-click a glyph to copy `U+XXXX`, or use the preview buttons to copy a Unicode code, hexadecimal literal, C++ Unicode escape, or the glyph itself. Supplementary characters use `\UXXXXXXXX` escapes.
+- **Material Symbols names** uses the bundled Google codepoint mapping, including aliases. It is enabled automatically for Material Symbols fonts and can be toggled for renamed or unrelated fonts. Other fonts use their embedded glyph names when available. Only codepoints actually present in the selected face are shown.
+- Use **Refresh** after reimporting or editing a font.
+
+The last selected asset and face are saved in the current user's `EditorPerProjectUserSettings.ini`, under `[HazardTools.FontGlyphBrowser]` (`LastFont`, `LastFace`). No project asset path is hard-coded. The browser uses only engine modules and the engine's FreeType library, with no dependency on HazardUX or other project plugins. It works without a network connection; source, license, and update instructions for the bundled names are in `Resources/FontGlyphBrowser/SOURCE.md`.
+
 ## Settings and Configuration
 
-The plugin uses `UDeveloperSettings` and its own configuration file:
+The other tools use `UDeveloperSettings` and the plugin's configuration file:
 
 - Configuration file: `Project/Config/DefaultHazardTools.ini`
 - Settings classes:

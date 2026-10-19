@@ -10,6 +10,7 @@
 #include "RecentAssetsButton/RecentAssetsButton.h"
 #include "ConfigReferenceValidator/SHazardConfigReferenceValidatorWindow.h"
 #include "UMGToSlate/SHazardUMGToSlate.h"
+#include "FontGlyphBrowser/SFontGlyphBrowser.h"
 
 
 DEFINE_LOG_CATEGORY(LogHazardTools);
@@ -27,6 +28,14 @@ public:
 
 		if (!IsRunningCommandlet())
 		{
+			RegisterNomadTabSpawner("HazardToolsFontGlyphBrowserTab", INVTEXT("Font Glyph Browser"), FOnSpawnTab::CreateLambda([](const FSpawnTabArgs&) {
+				return SNew(SDockTab)
+					.TabRole(NomadTab)
+					[
+						SNew(HazardTools::SFontGlyphBrowser)
+					];
+			}));
+
 			RegisterNomadTabSpawner(HazardTools::SHazardUMGToSlate::TabName, INVTEXT("UMG to Slate"), FOnSpawnTab::CreateLambda([](const FSpawnTabArgs&) {
 				return SNew(SDockTab).TabRole(NomadTab)
 					[
